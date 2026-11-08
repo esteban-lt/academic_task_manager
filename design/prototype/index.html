@@ -1,0 +1,257 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Gestor de Tareas Académicas · Prototipo</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<!--
+  Prototipo navegable (sin datos reales). Cada <section> es una pantalla y se
+  muestra cuando la URL termina en su #id (selector :target). Sin #, se ve el login.
+  Agrega ?wireframe a la URL para ver la versión en escala de grises.
+-->
+<div class="device">
+
+  <!-- ===================== LOGIN ===================== -->
+  <section id="login" class="screen login">
+    <div class="logo"><span class="material-icons">school</span></div>
+    <h1>Gestor de Tareas Académicas</h1>
+    <p class="muted" style="margin:0 0 32px">Organiza tus tareas, proyectos y exámenes en un solo lugar.</p>
+
+    <div class="field">
+      <label for="correo">Correo institucional</label>
+      <div class="input"><span class="material-icons">mail_outline</span>
+        <input id="correo" type="email" placeholder="alumno@universidad.mx" value="esteban@universidad.mx"></div>
+    </div>
+    <div class="field">
+      <label for="pass">Contraseña</label>
+      <div class="input"><span class="material-icons">lock_outline</span>
+        <input id="pass" type="password" value="contraseña">
+        <span class="material-icons">visibility_off</span></div>
+    </div>
+    <a class="btn btn-primary btn-block" href="#dashboard"><span class="material-icons">login</span>Iniciar sesión</a>
+    <a class="btn btn-text btn-block" href="#login" data-toast="Te enviaremos un enlace a tu correo">¿Olvidaste tu contraseña?</a>
+    <p class="divider">¿No tienes cuenta?
+      <a class="btn-text" style="font-weight:500" href="#login" data-toast="El registro llega en la siguiente fase">Crear cuenta</a></p>
+  </section>
+
+  <!-- ===================== DASHBOARD ===================== -->
+  <section id="dashboard" class="screen">
+    <header class="appbar">
+      <h2>Mis tareas</h2>
+      <a class="icon-btn" href="#dashboard" data-toast="Búsqueda simulada"><span class="material-icons">search</span></a>
+      <a class="icon-btn" href="#dashboard" data-toast="Filtro por tipo simulado"><span class="material-icons">filter_list</span></a>
+    </header>
+    <main class="content with-nav">
+      <h1 style="margin:0">Hola, Esteban</h1>
+      <p class="muted" style="margin:0">Sábado 8 de noviembre</p>
+
+      <div class="stats">
+        <div class="stat"><b>4</b><span class="caption">Pendientes</span></div>
+        <div class="stat warn"><b>2</b><span class="caption">Urgentes</span></div>
+        <div class="stat"><b>3</b><span class="caption">Esta semana</span></div>
+      </div>
+
+      <div class="section-label">Filtrar por tipo</div>
+      <div class="chips filters">
+        <span class="chip selected"><span class="material-icons">done</span>Todas</span>
+        <span class="chip">Tareas</span><span class="chip">Proyectos</span><span class="chip">Exámenes</span>
+      </div>
+
+      <div class="section-label">Próximas entregas</div>
+
+      <a class="card task" href="#detalle">
+        <span class="bar bar-alta"></span>
+        <div class="body">
+          <div class="top"><h3>Investigar redes neuronales</h3><span class="material-icons star">star</span></div>
+          <div class="meta"><span class="dot" style="background:#1565C0"></span>Inteligencia Artificial</div>
+          <div class="chips"><span class="chip">Tarea</span>
+            <span class="chip"><span class="material-icons">event</span>Lun 10 nov</span><span class="chip alta">Alta</span></div>
+        </div>
+      </a>
+      <a class="card task" href="#detalle">
+        <span class="bar bar-alta"></span>
+        <div class="body">
+          <div class="top"><h3>Examen parcial Unidad 3</h3></div>
+          <div class="meta"><span class="dot" style="background:#2E7D32"></span>Desarrollo de Apps Móviles</div>
+          <div class="chips"><span class="chip">Examen</span>
+            <span class="chip"><span class="material-icons">event</span>Mié 12 nov</span><span class="chip alta">Alta</span></div>
+        </div>
+      </a>
+      <a class="card task" href="#detalle">
+        <span class="bar bar-media"></span>
+        <div class="body">
+          <div class="top"><h3>Prototipo navegable</h3></div>
+          <div class="meta"><span class="dot" style="background:#2E7D32"></span>Desarrollo de Apps Móviles</div>
+          <div class="chips"><span class="chip">Proyecto</span>
+            <span class="chip"><span class="material-icons">event</span>Vie 14 nov</span><span class="chip media">Media</span></div>
+        </div>
+      </a>
+      <a class="card task" href="#detalle">
+        <span class="bar bar-baja"></span>
+        <div class="body">
+          <div class="top"><h3>Ensayo sobre ética en la IA</h3></div>
+          <div class="meta"><span class="dot" style="background:#F9A825"></span>Ética Profesional</div>
+          <div class="chips"><span class="chip">Tarea</span>
+            <span class="chip"><span class="material-icons">event</span>Mar 18 nov</span><span class="chip baja">Baja</span></div>
+        </div>
+      </a>
+    </main>
+    <a class="fab" href="#nueva"><span class="material-icons">add</span>Nueva</a>
+    <nav class="bottomnav">
+      <a class="active" href="#dashboard"><span class="material-icons">checklist</span>Tareas</a>
+      <a href="#materias"><span class="material-icons">menu_book</span>Materias</a>
+      <a href="#login"><span class="material-icons">logout</span>Salir</a>
+    </nav>
+  </section>
+
+  <!-- ===================== NUEVA TAREA ===================== -->
+  <section id="nueva" class="screen">
+    <header class="appbar">
+      <a class="icon-btn" href="#dashboard"><span class="material-icons">arrow_back</span></a>
+      <h2>Nueva tarea</h2>
+    </header>
+    <main class="content">
+      <div class="field">
+        <label for="titulo">Título</label>
+        <div class="input"><span class="material-icons">task_alt</span>
+          <input id="titulo" placeholder="Ej. Investigar redes neuronales" value="Investigar redes neuronales"></div>
+        <div class="helper">Obligatorio, mínimo 3 caracteres</div>
+      </div>
+      <div class="field">
+        <label for="materia">Materia</label>
+        <div class="input"><span class="material-icons">menu_book</span>
+          <select id="materia"><option>Inteligencia Artificial</option><option>Desarrollo de Apps Móviles</option>
+            <option>Ética Profesional</option><option>Bases de Datos</option></select></div>
+      </div>
+      <div class="row">
+        <div class="field" style="flex:1">
+          <label for="tipo">Tipo</label>
+          <div class="input"><span class="material-icons">category</span>
+            <select id="tipo"><option>Tarea</option><option>Proyecto</option><option>Examen</option></select></div>
+        </div>
+        <div class="field" style="flex:1">
+          <label for="fecha">Fecha de entrega</label>
+          <div class="input"><input id="fecha" type="date" value="2026-11-10"></div>
+        </div>
+      </div>
+      <div class="field">
+        <label>Urgencia</label>
+        <div class="segmented">
+          <label><input type="radio" name="urg"><span>Baja</span></label>
+          <label><input type="radio" name="urg"><span>Media</span></label>
+          <label><input type="radio" name="urg" checked><span><span class="material-icons" style="font-size:18px">check</span>Alta</span></label>
+        </div>
+      </div>
+      <div class="card" style="padding:4px 12px;margin-bottom:16px">
+        <label class="toggle-row"><span class="material-icons">star_outline</span>
+          <span class="label">Marcar como importante</span><input type="checkbox" checked></label>
+        <label class="toggle-row"><span class="material-icons">notifications_none</span>
+          <span class="label">Activar recordatorio</span><input type="checkbox" class="switch" checked></label>
+      </div>
+      <div class="field">
+        <label for="esfuerzo">Esfuerzo estimado: 4 de 5</label>
+        <input id="esfuerzo" type="range" min="1" max="5" value="4">
+        <div class="scale"><span>1</span><span>2</span><span>3</span><span>4</span><span>5</span></div>
+      </div>
+    </main>
+    <div class="form-actions row">
+      <a class="btn btn-outlined" href="#dashboard">Cancelar</a>
+      <a class="btn btn-primary" href="#dashboard" data-toast="Tarea guardada"><span class="material-icons">save</span>Guardar</a>
+    </div>
+  </section>
+
+  <!-- ===================== DETALLE ===================== -->
+  <section id="detalle" class="screen">
+    <header class="appbar">
+      <a class="icon-btn" href="#dashboard"><span class="material-icons">arrow_back</span></a>
+      <h2>Detalle</h2>
+      <a class="icon-btn" href="#detalle" data-toast="La edición llega en la siguiente fase"><span class="material-icons">edit</span></a>
+    </header>
+    <main class="content">
+      <div class="card">
+        <div class="chips" style="margin-bottom:12px"><span class="chip">Tarea</span><span class="chip alta">Urgencia alta</span></div>
+        <h1 style="font-size:22px">Investigar redes neuronales</h1>
+        <div class="meta" style="margin:0"><span class="dot" style="background:#1565C0"></span>Inteligencia Artificial</div>
+      </div>
+      <div class="card" style="margin-top:12px;padding-top:4px;padding-bottom:4px">
+        <ul class="info">
+          <li><span class="material-icons">event</span><div><div class="caption">Fecha de entrega</div>Lunes 10 de noviembre, 23:59</div></li>
+          <li><span class="material-icons">star</span><div><div class="caption">Importante</div>Sí</div></li>
+          <li><span class="material-icons">notifications_active</span><div><div class="caption">Recordatorio</div>Activado, un día antes</div></li>
+          <li><span class="material-icons">timer</span><div><div class="caption">Esfuerzo estimado</div>
+            <span class="effort"><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i></i></span></div></li>
+          <li><span class="material-icons">schedule</span><div><div class="caption">Creada</div>3 de noviembre de 2026</div></li>
+        </ul>
+      </div>
+      <a class="btn btn-danger btn-block" style="margin-top:24px" href="#eliminar"><span class="material-icons">delete_outline</span>Eliminar tarea</a>
+    </main>
+  </section>
+
+  <!-- Diálogo de confirmación (se ve encima del detalle) -->
+  <div id="eliminar" class="modal">
+    <div class="dialog">
+      <div class="icon-circle"><span class="material-icons">delete_outline</span></div>
+      <h3>¿Eliminar tarea?</h3>
+      <p>«Investigar redes neuronales» se borrará y no se puede deshacer.</p>
+      <div class="row">
+        <a class="btn btn-outlined" href="#detalle">Cancelar</a>
+        <a class="btn btn-danger-filled" href="#dashboard" data-toast="Tarea eliminada">Eliminar</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- ===================== MATERIAS ===================== -->
+  <section id="materias" class="screen">
+    <header class="appbar">
+      <a class="icon-btn" href="#dashboard"><span class="material-icons">arrow_back</span></a>
+      <h2>Materias</h2>
+    </header>
+    <main class="content with-nav">
+      <p class="muted" style="margin-top:0">Cada tarea pertenece a una de tus materias.</p>
+      <div class="card subject"><span class="dot" style="background:#1565C0"></span>
+        <div><h3>Inteligencia Artificial</h3><div class="caption">Dra. López</div></div><span class="chip">1 tarea</span></div>
+      <div class="card subject"><span class="dot" style="background:#2E7D32"></span>
+        <div><h3>Desarrollo de Apps Móviles</h3><div class="caption">Mtro. Ramírez</div></div><span class="chip">2 tareas</span></div>
+      <div class="card subject"><span class="dot" style="background:#F9A825"></span>
+        <div><h3>Ética Profesional</h3><div class="caption">Lic. Torres</div></div><span class="chip">1 tarea</span></div>
+      <div class="card subject"><span class="dot" style="background:#6A1B9A"></span>
+        <div><h3>Bases de Datos</h3><div class="caption">Ing. Díaz</div></div><span class="chip">0 tareas</span></div>
+    </main>
+    <a class="fab" href="#materias" data-toast="Materia agregada"><span class="material-icons">add</span>Materia</a>
+    <nav class="bottomnav">
+      <a href="#dashboard"><span class="material-icons">checklist</span>Tareas</a>
+      <a class="active" href="#materias"><span class="material-icons">menu_book</span>Materias</a>
+      <a href="#login"><span class="material-icons">logout</span>Salir</a>
+    </nav>
+  </section>
+
+  <div id="toast"><span class="material-icons">check_circle</span><span id="toast-text"></span></div>
+</div>
+
+<script>
+  // ?wireframe → versión en escala de grises (misma estructura).
+  if (new URLSearchParams(location.search).has('wireframe')) document.body.classList.add('wireframe');
+
+  // Avisos simulados: los enlaces con data-toast muestran un mensaje al navegar.
+  const toast = document.getElementById('toast');
+  let timer;
+  function showToast(text) {
+    document.getElementById('toast-text').textContent = text;
+    toast.classList.add('show');
+    clearTimeout(timer);
+    timer = setTimeout(() => toast.classList.remove('show'), 2500);
+  }
+  document.querySelectorAll('[data-toast]').forEach(a =>
+    a.addEventListener('click', () => showToast(a.dataset.toast)));
+  // Para capturas: ?toast=Texto muestra el aviso al cargar.
+  const t = new URLSearchParams(location.search).get('toast');
+  if (t) { showToast(t); clearTimeout(timer); }
+</script>
+</body>
+</html>
